@@ -1,4 +1,3 @@
-/*404 */
 .no-page {
   display: flex;
   justify-content: center;
@@ -15,8 +14,6 @@
   height: 30px;
   overflow: hidden;
 }
-/*end 404 */
-/*layout*/
 .ant-layout {
   height: 100vh;
 }
@@ -33,19 +30,42 @@
 .logo {
   height: 32px;
   margin: 16px;
-  /*background: rgba(255, 255, 255, 0.3);*/
   display: flex;
   justify-content: center;
   align-items: center;
-  /*font-weight: 500;*/
   color: #ffffff;
 }
 .site-layout .site-layout-background {
   background: #fff;
 }
-/*end layout*/
-/*dropdawn */
 .ant-dropdown {
   top: 50px !important;
 }
-/*end dropdown*/
+.slick-dots li {
+  background-color: #fcf403;
+  height: 5px !important;
+}
+.ant-carousel .slick-dots li.slick-active button {
+  background: #0022ff !important;
+}
+.ant-carousel .slick-dots li button {
+  height: 5px !important;
+}
+.ant-card {
+  margin-left: 10px !important;
+  margin-right: 10px !important;
+}
+.ant-carousel {
+  margin-left: -10px !important;
+  margin-right: -10px !important;
+}
+.ant-carousel .slick-dots {
+  left: unset !important;
+  right: 7px !important;
+  top: -10px !important;
+  margin: 0 !important;
+}
+.icon-card {
+  font-size: 18px;
+  color: #1890ff !important;
+}
