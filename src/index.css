@@ -54,6 +54,7 @@
 .ant-card {
   margin-left: 10px !important;
   margin-right: 10px !important;
+  overflow: hidden !important;
 }
 .ant-carousel {
   margin-left: -10px !important;
@@ -68,4 +69,10 @@
 .icon-card {
   font-size: 18px;
   color: #1890ff !important;
+}
+.canvasjs-chart-canvas {
+  left: -10px;
+}
+.canvasjs-chart-credit {
+  display: none;
 }

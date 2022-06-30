@@ -11,6 +11,7 @@ const HomePage = () => {
         title: {
             text: "Aqlli-suv"
         },
+        height: 250,
         subtitles: [{
             text: "Jami: 456",
             verticalAlign: "center",
@@ -32,58 +33,62 @@ const HomePage = () => {
 
     return (
         <>
-            <Carousel dotPosition={"top"}>
-                <div>
-                    <Row>
-                        <Col lg={{span: 8}}>
-                            <Card size="small" style={{padding: "10px"}}  extra={
-                                <><NavLink to="test"><EyeOutlined className="icon-card" /></NavLink> <CameraOutlined className="icon-card" /></>
-                            } >
-                                <CanvasJSChart options = {options} />
-                            </Card>
-                        </Col>
-                        <Col lg={{span: 8}}>
+            <Row>
+                <Col lg={{span: 8}}>
+                    <Carousel dotPosition={"top"}>
+                        <div>
                             <Card size="small"  extra={
                                 <><NavLink to="test"><EyeOutlined className="icon-card" /></NavLink> <CameraOutlined className="icon-card" /></>
                             } >
                                 <CanvasJSChart options = {options} />
                             </Card>
-                        </Col>
-                        <Col lg={{span: 8}}>
+                        </div>
+                        <div>
                             <Card size="small"  extra={
                                 <><NavLink to="test"><EyeOutlined className="icon-card" /></NavLink> <CameraOutlined className="icon-card" /></>
                             } >
                                 <CanvasJSChart options = {options} />
                             </Card>
-                        </Col>
-                    </Row>
-                </div>
-                <div>
-                    <Row>
-                        <Col lg={{span: 8}}>
-                            <Card size="small" title="Small size card" extra={<a href="#">More</a>} >
-                                <p>Card content</p>
-                                <p>Card content</p>
-                                <p>Card content</p>
+                        </div>
+                    </Carousel>
+                </Col>
+                <Col lg={{span: 8}}>
+                    <Carousel dotPosition={"top"}>
+                        <div>
+                            <Card size="small"  extra={
+                                <><NavLink to="test"><EyeOutlined className="icon-card" /></NavLink> <CameraOutlined className="icon-card" /></>
+                            } >
+                                <CanvasJSChart options = {options} />
                             </Card>
-                        </Col>
-                        <Col lg={{span: 8}}>
-                            <Card size="small" title="Small size card" extra={<a href="#">More</a>} >
-                                <p>Card content</p>
-                                <p>Card content</p>
-                                <p>Card content</p>
+                        </div>
+                        <div>
+                            <Card size="small"  extra={
+                                <><NavLink to="test"><EyeOutlined className="icon-card" /></NavLink> <CameraOutlined className="icon-card" /></>
+                            } >
+                                <CanvasJSChart options = {options} />
                             </Card>
-                        </Col>
-                        <Col lg={{span: 8}}>
-                            <Card size="small" title="Small size card" extra={<a href="#">More</a>} >
-                                <p>Card content</p>
-                                <p>Card content</p>
-                                <p>Card content</p>
+                        </div>
+                    </Carousel>
+                </Col>
+                <Col lg={{span: 8}}>
+                    <Carousel dotPosition={"top"}>
+                        <div>
+                            <Card size="small"  extra={
+                                <><NavLink to="test"><EyeOutlined className="icon-card" /></NavLink> <CameraOutlined className="icon-card" /></>
+                            } >
+                                <CanvasJSChart options = {options} />
                             </Card>
-                        </Col>
-                    </Row>
-                </div>
-            </Carousel>
+                        </div>
+                        <div>
+                            <Card size="small"  extra={
+                                <><NavLink to="test"><EyeOutlined className="icon-card" /></NavLink> <CameraOutlined className="icon-card" /></>
+                            } >
+                                <CanvasJSChart options = {options} />
+                            </Card>
+                        </div>
+                    </Carousel>
+                </Col>
+            </Row>
         </>
     );
 };
