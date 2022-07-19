@@ -76,3 +76,23 @@
 .canvasjs-chart-credit {
   display: none;
 }
+.ant-layout-content {
+  background-color: transparent !important;
+  margin: 0 !important;
+}
+.card-camera {
+  position: relative;
+}
+.card-camera button {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 999;
+}
+.table tbody th {
+  font-weight: normal;
+}
+.table tbody td {
+  text-align: center;
+  vertical-align: middle;
+}

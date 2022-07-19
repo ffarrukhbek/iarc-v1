@@ -32,7 +32,7 @@ const MainLayout = () => {
         <>
             <Layout>
                 <Sider trigger={null} collapsible collapsed={collapsed}>
-                    <div className="logo">IARC <span style={{marginLeft: "8px", color: "yellow", fontWeight: "bold"}}><LikeOutlined /></span></div>
+                    <div className="logo">IARC <span style={{marginLeft: "8px", marginTop: "-9px", color: "yellow", fontWeight: "bold"}}><LikeOutlined /></span></div>
                     <Menu
                         theme="dark"
                         mode="inline"

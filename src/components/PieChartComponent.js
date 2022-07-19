@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card} from "antd";
 import CanvasJSReact from '../units/canvasjs.react';
+import {CameraOutlined, EyeOutlined} from "@ant-design/icons";
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const PieChartComponent = ({info}) => {
@@ -30,7 +31,10 @@ const PieChartComponent = ({info}) => {
         }]
     }
     return (
-        <Card className="p-0 m-0">
+        <Card className="p-0 m-0 card-camera">
+            <button className="btn btn-secondary ps-2 pe-2 pt-0">
+                <CameraOutlined />
+            </button>
             <CanvasJSChart options = {options} />
         </Card>
     );
