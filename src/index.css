@@ -79,6 +79,7 @@
 .ant-layout-content {
   background-color: transparent !important;
   margin: 0 !important;
+  overflow-y: scroll;
 }
 .card-camera {
   position: relative;

@@ -2,6 +2,7 @@ import React from 'react';
 import {Col, Row, Table} from "react-bootstrap";
 import PieChartComponent from "../components/PieChartComponent";
 import {Card} from "antd";
+import BarChartComponent from "../components/BarChartComponent";
 
 
 const MainPage = () => {
@@ -134,6 +135,32 @@ const MainPage = () => {
                                         <td>000</td>
                                         <td>000</td>
                                     </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <th>SMART SOLUTION SYSTEM</th>
+                                        <td>000</td>
+                                        <td>000</td>
+                                        <td>000</td>
+                                        <td>000</td>
+                                        <td>000</td>
+                                        <td>000</td>
+                                        <td>000</td>
+                                        <td>000</td>
+                                        <td>000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <th>SMART SOLUTION SYSTEM</th>
+                                        <td>000</td>
+                                        <td>000</td>
+                                        <td>000</td>
+                                        <td>000</td>
+                                        <td>000</td>
+                                        <td>000</td>
+                                        <td>000</td>
+                                        <td>000</td>
+                                        <td>000</td>
+                                    </tr>
                                     </tbody>
                                 </Table>
                             </div>
@@ -141,7 +168,37 @@ const MainPage = () => {
                     </Col>
                     <Col xs={6} md={3}>
                         <Card className="p-0 m-0 mt-3">
-                            asd
+                            <h5 style={{maxWidth: "1100px", marginLeft: "auto", marginRight: "auto", fontWeight: "bold"}} className="text-center py-3 mb-1">Integratsiyalar soni</h5>
+                            {/*<div className="table-responsive">*/}
+                            {/*    <Table striped bordered hover size="sm">*/}
+                            {/*        <thead className="text-center" style={{verticalAlign: "middle"}}>*/}
+                            {/*            <tr>*/}
+                            {/*                <th>#</th>*/}
+                            {/*                <th>Viloyat nomi</th>*/}
+                            {/*                <th>Aqlli-suv</th>*/}
+                            {/*                <th>Nasos</th>*/}
+                            {/*                <th>Dayver</th>*/}
+                            {/*            </tr>*/}
+                            {/*        </thead>*/}
+                            {/*        <tbody>*/}
+                            {/*            <tr>*/}
+                            {/*                <td>1</td>*/}
+                            {/*                <th>Andijon</th>*/}
+                            {/*                <td>1</td>*/}
+                            {/*                <td>2</td>*/}
+                            {/*                <td>3</td>*/}
+                            {/*            </tr>*/}
+                            {/*            <tr>*/}
+                            {/*                <td>2</td>*/}
+                            {/*                <th>Buxoro</th>*/}
+                            {/*                <td>1</td>*/}
+                            {/*                <td>2</td>*/}
+                            {/*                <td>3</td>*/}
+                            {/*            </tr>*/}
+                            {/*        </tbody>*/}
+                            {/*    </Table>*/}
+                            {/*</div>*/}
+                            <BarChartComponent />
                         </Card>
                     </Col>
                 </Row>
