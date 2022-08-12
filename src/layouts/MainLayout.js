@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
-import {Outlet} from 'react-router-dom';
+import {NavLink, Outlet} from 'react-router-dom';
 import {Dropdown, Layout, Menu, Space} from 'antd';
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
-    UploadOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
+    // UploadOutlined,
+    // UserOutlined,
+    DashboardOutlined,
+    // VideoCameraOutlined,
+    ApartmentOutlined,
+    WalletOutlined,
+    DeploymentUnitOutlined,
+    ExclamationCircleOutlined,
     LikeOutlined,
     DownOutlined,
     LogoutOutlined
@@ -40,18 +45,28 @@ const MainLayout = () => {
                         items={[
                             {
                                 key: '1',
-                                icon: <UserOutlined />,
-                                label: 'Dashboard',
+                                icon: <DashboardOutlined />,
+                                label: <NavLink to="/">Dashboard</NavLink>,
                             },
                             {
                                 key: '2',
-                                icon: <VideoCameraOutlined />,
-                                label: 'Tahlil',
+                                icon: <ApartmentOutlined />,
+                                label: <NavLink to="pump">Nasos</NavLink>,
                             },
                             {
                                 key: '3',
-                                icon: <UploadOutlined />,
-                                label: 'nav 3',
+                                icon: <WalletOutlined />,
+                                label: <NavLink to="well">Dayver</NavLink>,
+                            },
+                            {
+                                key: '4',
+                                icon: <DeploymentUnitOutlined />,
+                                label: <NavLink to="smartwater">Aqlli suv</NavLink>,
+                            },
+                            {
+                                key: '5',
+                                icon: <ExclamationCircleOutlined />,
+                                label: <NavLink to="comment">Eslatma</NavLink>,
                             },
                         ]}
                     />

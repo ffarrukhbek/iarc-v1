@@ -1,12 +1,13 @@
 import React from 'react';
 import {Card} from "antd";
 import CanvasJSReact from '../units/canvasjs.react';
-import {CameraOutlined, EyeOutlined} from "@ant-design/icons";
+import {CameraOutlined} from "@ant-design/icons";
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const PieChartComponent = ({info}) => {
     console.log(info)
     const options = {
+        theme: "light1",
         animationEnabled: true,
         title: {
             text: `${info.name}`

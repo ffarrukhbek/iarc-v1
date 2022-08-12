@@ -9,7 +9,7 @@ const BarChartComponent = () => {
         animationEnabled: true,
         theme: "light2",
         title:{
-            text: ""
+            text: "Integratsiya"
         },
         axisX: {
             title: "",
@@ -41,8 +41,8 @@ const BarChartComponent = () => {
                 { y:  46, label: "Sirdaryo" },
                 { y:  24, label: "Surxondaryo" },
                 { y:  86, label: "Toshkent" },
-                { y:  14, label: "Farg'ona" },
-                { y:  45, label: "Xorazm" }
+                // { y:  74, label: "Farg'ona" },
+                // { y:  45, label: "Xorazm" }
             ]
         }]
     }
