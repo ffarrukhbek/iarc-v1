@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {NavLink, Outlet} from 'react-router-dom';
 import {Dropdown, Layout, Menu, Space} from 'antd';
 import {
@@ -18,13 +18,16 @@ import {
 } from '@ant-design/icons';
 
 const { Header, Sider, Content } = Layout;
+const logout = () => {
+    localStorage.removeItem("user")
+}
 const menu = (
     <Menu
         items={[
             {
                 key: '4',
                 danger: true,
-                label: 'chiqish',
+                label: <NavLink style={{textDecoration: "none"}} onClick={logout} to="login">Chiqish</NavLink>,
                 icon: <LogoutOutlined />,
             },
         ]}
@@ -83,7 +86,7 @@ const MainLayout = () => {
                             onClick: () => setCollapsed(!collapsed),
                         })}
                         <Dropdown overlay={menu}>
-                            <a onClick={(e) => e.preventDefault()} style={{position: "absolute", right: "15px"}}>
+                            <a onClick={(e) => e.preventDefault()} style={{textDecoration: "none",  position: "absolute", right: "15px"}}>
                                 <Space>
                                     Respublika
                                     <DownOutlined />
