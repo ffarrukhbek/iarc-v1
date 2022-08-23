@@ -88,7 +88,7 @@ const MainLayout = () => {
                         <Dropdown overlay={menu}>
                             <a onClick={(e) => e.preventDefault()} style={{textDecoration: "none",  position: "absolute", right: "15px"}}>
                                 <Space>
-                                    Respublika
+                                    {JSON.parse(localStorage.getItem("user")).login}
                                     <DownOutlined />
                                 </Space>
                             </a>

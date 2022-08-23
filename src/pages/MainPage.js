@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Col, Row, Table} from "react-bootstrap";
 import PieChartComponent from "../components/PieChartComponent";
 import {Card} from "antd";
 import BarChartComponent from "../components/BarChartComponent";
+import axios from "axios";
+import {getDayverData} from "../requests";
 
 
 const MainPage = () => {
@@ -30,6 +32,8 @@ const MainPage = () => {
         }
     ]
 
+    useEffect(() => getDayverData(), [])
+
     return (
             <>
                 <Row>
@@ -43,6 +47,7 @@ const MainPage = () => {
                         })
                     }
                 </Row>
+
                 {/*<Row>*/}
                 {/*    <Col xs={6} md={9}>*/}
                 {/*        <Card className="p-0 m-0 mt-3" >*/}
