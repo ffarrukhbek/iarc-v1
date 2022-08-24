@@ -15,9 +15,9 @@ export const getDayverData = () => {
         .then(({ data: isData }) => {
             if (isData) {
                 dayver.total = isData[0].length
-
-                const datas = isData[0].filter(item => item.data == null)
-                console.log(datas.length)
+                dayver.noworking = isData[0].filter(item => item.data == null).length
+                const sendedData = isData[0].filter(item => item.data != null).map(item => item.data)
+                console.log(sendedData.filter(item => item.created_at > "2022-08-02 13:07:28"))
             } else {
                 console.log("no data");
             }
