@@ -32,7 +32,11 @@ const MainPage = () => {
         }
     ]
 
-    useEffect(() => getDayverData(), [])
+    useEffect(() => {
+        const VilID = JSON.parse(localStorage.getItem("user")).vilID
+        const test = getDayverData(VilID)
+        console.log(test)
+    })
 
     return (
             <>
