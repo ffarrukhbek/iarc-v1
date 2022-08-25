@@ -1,8 +1,8 @@
 import {combineReducers} from "redux";
-import getDayverData from "./getDayverData";
+import dayverReducer from "./dayverReducer";
 
 const rootReducers = combineReducers({
-    getDayverData
+    dayverReducer
 })
 
 export default rootReducers

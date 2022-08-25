@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react';
-import {Col, Row, Table} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 import PieChartComponent from "../components/PieChartComponent";
-import {Card} from "antd";
-import BarChartComponent from "../components/BarChartComponent";
-import axios from "axios";
 import {getDayverData} from "../requests";
+import {useDispatch, useSelector} from "react-redux";
+import dayverAction from "../redux/actions/dayverAction";
 
 
 const MainPage = () => {
@@ -31,12 +30,15 @@ const MainPage = () => {
             nostable: "20"
         }
     ]
+    const dispatch = useDispatch()
 
     useEffect(() => {
         const VilID = JSON.parse(localStorage.getItem("user")).vilID
-        const test = getDayverData(VilID)
-        console.log(test)
-    })
+        // console.log("pagedan: ",[getDayverData(VilID)])
+        dispatch(dayverAction(getDayverData(VilID)))
+    }, [])
+
+    console.log("page: ",useSelector(state => state.dayverReducer))
 
     return (
             <>

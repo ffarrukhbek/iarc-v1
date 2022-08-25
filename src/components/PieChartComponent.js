@@ -5,7 +5,7 @@ import {CameraOutlined} from "@ant-design/icons";
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const PieChartComponent = ({info}) => {
-    console.log(info)
+    // console.log(info)
     const options = {
         theme: "light1",
         animationEnabled: true,
