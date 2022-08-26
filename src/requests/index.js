@@ -1,15 +1,15 @@
 import axios from "axios";
 import {getToday} from "../units/today";
 
-let dayver = {
-    name: "Dayver",
-    total: null,
-    working: null,
-    nostable: null,
-    noworking: null
-}
-
 export const getDayverData = (vilID) => {
+    let dayver = {
+        name: "Dayver",
+        total: null,
+        working: null,
+        nostable: null,
+        noworking: null,
+        status: false
+    }
     const config = {
         headers: { Authorization: `Bearer njHRNxCeNFrvcAaKKlWcxcQrgCwiADH7` }
     };
@@ -27,11 +27,13 @@ export const getDayverData = (vilID) => {
                 dayver.noworking = filterData.filter(item => item.data == null).length
                 dayver.working = filterData.filter(item => item.data != null).map(item => item.data).filter(item => item.created_at >= getToday()).length
                 dayver.nostable = filterData.filter(item => item.data != null).map(item => item.data).filter(item => item.created_at < getToday()).length
+                dayver.status = true
             } else {
                 dayver.total = 0
                 dayver.noworking = 0
                 dayver.working = 0
                 dayver.nostable = 0
+                dayver.status = true
             }
         })
         .catch(error => {

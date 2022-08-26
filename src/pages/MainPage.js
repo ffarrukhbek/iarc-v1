@@ -4,54 +4,114 @@ import PieChartComponent from "../components/PieChartComponent";
 import {getDayverData} from "../requests";
 import {useDispatch, useSelector} from "react-redux";
 import dayverAction from "../redux/actions/dayverAction";
+import aqllisuvAction from "../redux/actions/aqllisuvAction";
+import axios from "axios";
+import {getToday} from "../units/today";
 
 
 const MainPage = () => {
-    const datas = [
-        {
-            name: "Aqlli-suv",
-            total: "456",
-            working: "40",
-            noworking: "29",
-            nostable: "31"
-        },
-        {
-            name: "Dayver",
-            total: "302",
-            working: "25",
-            noworking: "25",
-            nostable: "50"
-        },
-        {
-            name: "Nasos",
-            total: "890",
-            working: "35",
-            noworking: "45",
-            nostable: "20"
-        }
-    ]
+    const vilID = JSON.parse(localStorage.getItem("user")).vilID
     const dispatch = useDispatch()
-
     useEffect(() => {
-        const VilID = JSON.parse(localStorage.getItem("user")).vilID
-        // console.log("pagedan: ",[getDayverData(VilID)])
-        dispatch(dayverAction(getDayverData(VilID)))
+        let dayver = {
+            name: "Dayver",
+            total: null,
+            working: null,
+            nostable: null,
+            noworking: null,
+            status: false
+        }
+        const configDayver = {
+            headers: { Authorization: `Bearer njHRNxCeNFrvcAaKKlWcxcQrgCwiADH7` }
+        };
+        axios
+            .post('http://89.236.195.198:3010/data/last', {}, configDayver)
+            .then(({ data: isData }) => {
+                if (isData) {
+                    let filterData = null
+                    if (vilID != 14) {
+                        filterData = isData[0].filter(item => item.region == vilID)
+                    } else {
+                        filterData = isData[0]
+                    }
+                    dayver.total = filterData.length
+                    dayver.noworking = filterData.filter(item => item.data == null).length
+                    dayver.working = filterData.filter(item => item.data != null).map(item => item.data).filter(item => item.created_at >= getToday()).length
+                    dayver.nostable = filterData.filter(item => item.data != null).map(item => item.data).filter(item => item.created_at < getToday()).length
+                    dayver.status = true
+                    dispatch(dayverAction({dayver, filterData}))
+                } else {
+                    dayver.total = 0
+                    dayver.noworking = 0
+                    dayver.working = 0
+                    dayver.nostable = 0
+                    dayver.status = true
+                    dispatch(dayverAction(dayver))
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }, [])
 
-    console.log("page: ",useSelector(state => state.dayverReducer))
+    useEffect(() => {
+        let aqllisuv = {
+            name: "Aqlli-suv",
+            total: null,
+            working: null,
+            nostable: null,
+            noworking: null,
+            status: false
+        }
+        const configWater = {
+            headers: { Authorization: `Bearer tMj_7E8NzYn-tDM2ciEbz9BQCr_sfd6z` }
+        };
+        axios
+            .post('http://89.236.195.198:2010/api/all', {}, configWater)
+            .then(({ data: isData }) => {
+                if (isData) {
+                    let filterData = null
+                    if (vilID != 14) {
+                        filterData = isData[0].filter(item => item.region == vilID)
+                    } else {
+                        filterData = isData[0]
+                    }
+                    aqllisuv.total = filterData.length
+                    aqllisuv.noworking = filterData.filter(item => item.http == null).length
+                    aqllisuv.working = filterData.filter(item => item.http != null).map(item => item.http).filter(item => item.created_at >= getToday()).length
+                    aqllisuv.nostable = filterData.filter(item => item.http != null).map(item => item.http).filter(item => item.created_at < getToday()).length
+                    aqllisuv.status = true
+                    dispatch(aqllisuvAction({aqllisuv, filterData}))
+                } else {
+                    aqllisuv.total = 0
+                    aqllisuv.noworking = 0
+                    aqllisuv.working = 0
+                    aqllisuv.nostable = 0
+                    aqllisuv.status = true
+                    dispatch(aqllisuvAction(aqllisuv))
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }, [])
+
+    const dayverAll = useSelector(state => state.dayverReducer)
+    const aqllisuvAll = useSelector(state => state.aqllisuvReducer)
+    console.log(aqllisuvAll[0]?.dayver)
 
     return (
             <>
                 <Row>
-                    {
-                        datas.map((item, index) => {
-                            return(
-                                <Col key={index} xs={6} md={4}>
-                                    <PieChartComponent info={item} />
-                                </Col>
-                            )
-                        })
-                    }
+                    <Col xs={6} md={4}>
+                        <PieChartComponent info={dayverAll[0]?.dayver} />
+                    </Col>
+                    <Col xs={6} md={4}>
+                        <PieChartComponent info={dayverAll[0]?.dayver} />
+                    </Col>
+                    <Col xs={6} md={4}>
+                        <PieChartComponent info={dayverAll[0]?.dayver} />
+                    </Col>
                 </Row>
 
                 {/*<Row>*/}

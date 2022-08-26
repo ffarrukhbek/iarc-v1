@@ -5,29 +5,29 @@ import {CameraOutlined} from "@ant-design/icons";
 let CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 const PieChartComponent = ({info}) => {
-    // console.log(info)
     const options = {
         theme: "light1",
         animationEnabled: true,
         title: {
-            text: `${info.name}`
+            text: `${info?.name}`,
         },
         height: 250,
         subtitles: [{
-            text: `Jami: ${info.total}`,
+            text: `Jami: ${info?.total}`,
             verticalAlign: "center",
             fontSize: 20,
             dockInsidePlotArea: true
         }],
         data: [{
+            indexLabelFontSize: 16,
             type: "doughnut",
             showInLegend: true,
             indexLabel: "{name}: {y}",
-            yValueFormatString: "#,###'%'",
+            yValueFormatString: "####' ta'",
             dataPoints: [
-                { name: "Umuman kelmagan", y: info.noworking },
-                { name: "Uzulishi bor", y: info.nostable },
-                { name: "Ishlamoqda", y: info.working },
+                { name: "Umuman kelmagan", y: info?.noworking },
+                { name: "Uzulishi bor", y: info?.nostable },
+                { name: "Ishlamoqda", y: info?.working },
             ]
         }]
     }
